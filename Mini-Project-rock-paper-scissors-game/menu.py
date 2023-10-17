@@ -12,6 +12,9 @@ class Menu:
         self.computer_player = ComputerPlayer()
         self.game_counter = 0
 
+    def __str__(self):
+        pass
+
     def player_mistake_message(self):
         """
         Display a random player mistake message.
@@ -42,7 +45,7 @@ class Menu:
                 'Do you wanna play rock-paper-scissors game? (y/n): ')
             if introduce_question.lower() == 'y':
                 game_counter_input = input(
-                    'Let\'s play!\n--- Rock-Paper-Sissors Game ---\nHow many rounds would you like to play? ')
+                    'Let\'s play!\n--- Rock-Paper-Scissors Game ---\nHow many rounds would you like to play? ')
                 if game_counter_input.isdigit():
                     self.game_counter = int(game_counter_input)
                     break
@@ -52,7 +55,7 @@ class Menu:
             if introduce_question.lower() == 'n':
                 are_you_sure = input('Are you sure? ')
                 if are_you_sure == 'y':
-                    print('Maybe next time!')
+                    print("\nMaybe next time!\n")
                     return 0
                 elif are_you_sure == 'n':
                     continue

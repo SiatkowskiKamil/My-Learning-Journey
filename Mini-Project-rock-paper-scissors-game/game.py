@@ -2,6 +2,9 @@ import random
 
 
 class Game:
+    """
+    Class representing the game.
+    """
 
     human_player_score = 0
     computer_player_score = 0
@@ -15,7 +18,7 @@ class Game:
         self.human_player = human_player
         self.computer_player = computer_player
 
-    def rock_paper_sissors_game(self):
+    def rock_paper_scissors_game(self):
         """
         Play a round of rock-paper-scissors with the user.
         """
@@ -49,14 +52,17 @@ class Game:
                 f"And my choice is {computer_choice}! {user_choice_comparison.capitalize()} beats {computer_choice}. You win!")
             Game.human_player_score += 1
             self.score_info()
+            self.who_wins()
         elif (user_choice_comparison, computer_choice) in losing_combinations:
             print(
                 f"And my choice is {computer_choice}! {computer_choice.capitalize()} beats {user_choice_comparison}. Computer wins!")
             Game.computer_player_score += 1
             self.score_info()
+            self.who_wins()
         else:
             print(f"And my choice is {computer_choice}! It's a tie!")
             self.score_info()
+            self.who_wins()
 
     def score_info(self):
         """
@@ -70,7 +76,7 @@ class Game:
         Determine and display the winner of the game.
         """
         if Game.human_player_score > Game.computer_player_score:
-            print('Congrats! You win!')
+            print('You win!')
         elif Game.human_player_score < Game.computer_player_score:
             print('Sorry dude! You lose!')
         else:
